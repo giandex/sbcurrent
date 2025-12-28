@@ -1,0 +1,2 @@
+Warning! The slackbuilds available in this repository are only compatible with Slackware current and are not supported by the stable Slackware 15.0.
+They compile source more recent than those available on slackbuilds.org because they support the dependency versions released with current. Conversely, the slackbuilds of the same packages available on slackbuilds.org are no longer compatible with current because versions are outdated.
