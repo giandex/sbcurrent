@@ -73,34 +73,33 @@ find . ! -type l    -a \( \
   \(   ! -perm /111 -a ! -perm 644 -a -exec chmod -f 644 {} + \) \)
   
 export LD_LIBRARY_PATH=$TMP/${SRCNAM}-$VERSION/src
+export LD_INCLUDE_PATH=$TMP/${SRCNAM}-$VERSION/src
 export PATH=/usr/lib${LIBDIRSUFFIX}/qt6/bin:$PATH
 export QMAKEFEATURES=$TMP/${SRCNAM}-$VERSION/src/features/
 
 echo " "
 echo "+---------------------------------------------------------+"
-echo "'           Building and installing Qt6 support           '"
+echo "'           Building Qt6 support           '"
 echo "+---------------------------------------------------------+"
 echo " "
 
 cd src
 qmake6
-make
-make DESTDIR=$PKG INSTALL_ROOT=$PKG
+make -j 10
 
 echo " "
 echo "+---------------------------------------------------------+"
-echo "'        Building and installing Qt designer plugin       '"
+echo "'        Building Qt designer plugin       '"
 echo "+---------------------------------------------------------+"
 echo " "
 
 cd ../designer
 qmake6 INCLUDEPATH+=../src QMAKE_LIBDIR+=../src
-make
-make DESTDIR=$PKG INSTALL_ROOT=$PKG install
+make -j 10
 
 echo " "
 echo "+---------------------------------------------------------+"
-echo "'         Building and installing Python bindings         '"
+echo "'         Building Python bindings         '"
 echo "+---------------------------------------------------------+"
 echo " "
 
@@ -115,9 +114,20 @@ sip-build \
   --qsci-library-dir ../src \
   --api-dir /usr/share/qt6/qsci/api/python
 cd build
-make
-make DESTDIR=$PKG INSTALL_ROOT=$PKG install
+make -j 10
 
+echo " "
+echo "+---------------------------------------------------------+"
+echo "'                       INSTALLING                        '"
+echo "+---------------------------------------------------------+"
+echo " "
+
+cd ../../src
+make DESTDIR=$PKG INSTALL_ROOT=$PKG install || exit 1
+cd ../designer
+make DESTDIR=$PKG INSTALL_ROOT=$PKG install || exit 1
+cd ../Python/build
+make DESTDIR=$PKG INSTALL_ROOT=$PKG install || exit 1
 cd ../..
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
