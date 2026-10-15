@@ -1,0 +1,33 @@
+QScintilla is a port to Qt of Neil Hodgson's Scintilla C++ editor
+control released by Riverbank Computing.
+
+As well as features found in standard text editing components,
+QScintilla includes features especially useful when editing and
+debugging source code. These include support for syntax styling, error
+indicators, code completion and call tips. The selection margin can
+contain markers like those used in debuggers to indicate breakpoints
+and the current line. Styling choices are more open than with many
+editors, allowing the use of proportional fonts, bold and italics,
+multiple foreground and background colours and multiple fonts.
+
+The Slackware package QScintilla is available in Slackware 15.0 Stable
+but it has been removed from Slackware -current on June 2026 because it
+is not more needed by any package released by official Slackware.
+The purpose of this slackbuild is to make QScintilla available in
+-current as well, for use it to build and installing software that is
+not released by official Slackware but requires QScintilla as
+dependency, such as QGIS.
+
+Warning
+Make sure that install the package PyQt-builder before build
+QScintilla: unlike previous installations in, -current PyQt-builder is
+needed to build and install the Python bindings for full functionality
+of QScintilla (required by QGIS, for example). Without this dependency,
+the build of Python bindings will fail and the script will stop. You
+can find PyQt-builder in the same repository of QScintilla for -current
+users. 
+
+Both QScintilla and PyQt-builder packages are not available in the
+repository of Slackbuilds.org because they are designed for Slackware
+-current users. QScintilla is already available in official Slackware
+15.0 Stable and PyQt-builder is not compatible with Stable version.
