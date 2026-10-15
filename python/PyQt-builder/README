@@ -1,0 +1,17 @@
+PyQt-builder is the PEP 517 compliant build system for PyQt and
+projects that extend PyQt, maintained by Phil Thompson from
+Riverbanks Computing.
+
+PyQt-builder extends the SIP build system and uses Qt's qmake to
+perform the actual compilation and installation of extension
+modules.
+
+Projects that use PyQt-builder provide an appropriate pyproject.toml
+file and an optional project.py script. Any PEP 517 compliant frontend,
+for example build or pip can then be used to build and install the
+project.
+
+This package is strictly needed as dependency to build and install
+the Python bindings of QScintilla on Slackware -current. It is not
+compatible with Slackware 15.0 Stable because requires Python versions
+greater than 3.9.
