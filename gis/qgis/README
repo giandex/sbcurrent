@@ -1,0 +1,20 @@
+QGIS is a user friendly Geographic Information System that lets you
+view and manipulate spatial data on your computer.  It supports many
+common spatial data formats (e.g. PostGIS, ShapeFile and geotiff).
+
+The installation of QGIS from sources can result strongly different
+depending on the optional/required packages installed and enabled. This
+slackbuild is based on basic and some optional settings that require
+the dependencies (and related nested deps) reported in the REQUIRES
+field of qgis.info.
+
+This slackbuild is designed for -current and cannot be used on
+Slackware 15.0 Stable due the unsupported Python version.
+
+WARNING
+QGIS requires QScintilla 2 that is not more released by the
+official repository of Slackware, but you can find a slackbuild of
+QScintilla in this repository. If you already have an installation of
+QScintilla make sure that Python bindings are correctly installed.
+
+For further information see the README.Slackware file.
