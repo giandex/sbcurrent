@@ -19,15 +19,10 @@ not released by official Slackware but requires QScintilla as
 dependency, such as QGIS.
 
 Warning
-Make sure that install the package PyQt-builder before build
-QScintilla: unlike previous installations in, -current PyQt-builder is
-needed to build and install the Python bindings for full functionality
-of QScintilla (required by QGIS, for example). Without this dependency,
-the build of Python bindings will fail and the script will stop. You
-can find PyQt-builder in the same repository of QScintilla for -current
-users. 
+Make sure that PyQt-builder is installed in your system before build
+QScintilla: it is needed to build and install the Python bindings for
+full functionality of QScintilla (required by QGIS, for example). 
 
-Both QScintilla and PyQt-builder packages are not available in the
-repository of Slackbuilds.org because they are designed for Slackware
--current users. QScintilla is already available in official Slackware
-15.0 Stable and PyQt-builder is not compatible with Stable version.
+QScintilla is not available in the repository of Slackbuilds.org
+because this slackbuild is designed for Slackware -current users.
+QScintilla is already available in official Slackware 15.0 Stable.

@@ -5,6 +5,6 @@ DOWNLOAD="https://www.riverbankcomputing.com/static/Downloads/QScintilla/2.14.1/
 MD5SUM="9c9e3803e4371ebbb218682e8596af5d"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
-REQUIRES="PyQt-builder"
+REQUIRES=""
 MAINTAINER="Giancarlo Dessi"
 EMAIL="slack@giand.it"
